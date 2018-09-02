@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.nex.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <!-- Common Css -->
+        <link rel="stylesheet" href="/css/plugin/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/plugin/sweetalert2.min.css">
+        <link rel="stylesheet" href="/css/user/user.css">
+
+        <!-- Common Script -->
+        <script src="/js/plugin/jquery.min.js"></script>
+        <script src="/js/plugin/bootstrap.min.js"></script>
+        <script src="/js/plugin/vue.min.js"></script>
+        <script src="/js/plugin/axios.min.js"></script>
+        <script src="/js/plugin/sweetalert2.min.js"></script>
+    </head>
+    <body>
+
+        <!-- Main -->
+        <div class="user_layout" id="user_form">
+            <div>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#signin">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#signup">회원가입</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane container active" id="signin">
+                        <div th:include="/component/user/signin :: user_signin"></div>
+                    </div>
+                    <div class="tab-pane container fade" id="signup">
+                        <div th:include="/component/user/signup :: user_signup"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

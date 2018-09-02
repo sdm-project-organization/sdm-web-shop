@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.nex.nz/thymeleaf/layout"
+      layout:decorator="layout/layout_shop">
+<head>
+    <meta charset="UTF-8">
+    <title>상품목록</title>
+    <link rel="stylesheet" href="/css/shop/shop.goods.css">
+</head>
+<body>
+    <section layout:fragment="content">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- Goods Title -->
+                <div class="row" style="margin-top: 30px;">
+                    <h1 class="display-4 d-inline-block">상품목록</h1>
+                </div>
+                <hr class="my-4">
+
+                <!-- Goods List -->
+                <div id="shop_goods_list" class="row" style="margin-bottom: 30px;">
+                    <div v-for="(goods, index) in listGoods" class="col-3 goods-card-margin">
+                        <div class="card">
+                            <img v-bind:src="goods.thumbnail" class="card-img-top" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{goods.title}}</h5>
+                                <p class="card-text">{{goods.subTitle}}</p>
+                                <button v-on:click="reqCreateBasket(goods.goodsNo)" type="button" class="btn btn-outline-warning btn-block">장바구니담기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="/js/shop/shop.list.goods.js"></script>
+
+                <!-- Pagenation -->
+                <div class="w-100 text-center">
+                    <div th:replace="/component/shop/common/pagenation :: shop_pagenation"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

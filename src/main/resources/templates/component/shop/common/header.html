@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="shop_header">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/shop/main">
+            SpringBootShop
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/shop/main">
+                        상품정보 <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/shop/basket">
+                        장바구니 <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/shop/purchase">
+                        구매목록
+                    </a>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN') || hasRole('ROLE_EMPLOYEE')">
+                    <a class="nav-link active" href="/shop/admin">
+                        관리모드
+                    </a>
+                </li>
+            </ul>
+            <form action="/user/logout" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">로그아웃</button>
+            </form>
+        </div>
+    </nav>
+
+</div>
+</body>
+</html>

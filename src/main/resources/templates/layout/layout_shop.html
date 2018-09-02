@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.nex.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- Common Css -->
+    <link rel="stylesheet" href="/css/plugin/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/plugin/sweetalert2.min.css">
+
+    <!-- Common Script -->
+    <script src="/js/plugin/jquery.min.js"></script>
+    <script src="/js/plugin/bootstrap.min.js"></script>
+    <script src="/js/plugin/vue.min.js"></script>
+    <script src="/js/plugin/axios.min.js"></script>
+    <script src="/js/plugin/sweetalert2.min.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <div th:include="/component/shop/common/header :: shop_header"></div>
+
+    <!-- Main -->
+    <div class="row">
+        <div class="col-10 offset-1">
+            <section layout:fragment="content"></section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:include="/component/shop/common/footer :: shop_footer"></div>
+
+</body>
+</html>

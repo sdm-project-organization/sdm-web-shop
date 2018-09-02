@@ -1,0 +1,17 @@
+[
+  {
+    "userId" : "admin@kakao.com",
+    "password" : "admin1234",
+    "authority" : "admin"
+  },
+  {
+    "userId" : "employee@kakao.com",
+    "password" : "employee1234",
+    "authority" : "employee"
+  },
+  {
+    "userId" : "user@kakao.com",
+    "password" : "user1234",
+    "authority" : "user"
+  }
+]

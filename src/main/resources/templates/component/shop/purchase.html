@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.nex.nz/thymeleaf/layout"
+      layout:decorator="layout/layout_shop">
+<head>
+    <meta charset="UTF-8">
+    <title>구매목록</title>
+</head>
+<body>
+    <section layout:fragment="content">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- Goods Title -->
+                <div class="row" style="margin-top: 30px;">
+                    <h1 class="display-4 d-inline-block">구매목록</h1>
+                </div>
+                <hr class="my-4">
+
+                <!-- Goods List -->
+                <div id="shop_purchase_list" class="row" style="margin-top: 30px;">
+                    <div v-for="purchase in listPurchase" class="card bg-light col-12" style="padding: 0px; margin-bottom: 30px;">
+                        <!-- TODO == Date Format == -->
+                        <div v-if="purchase.payment" class="card-header">
+                            주문일자 : {{purchase.createdAt}}
+                            <button
+                                    v-on:click="clickPaymentCancel(purchase.purchaseNo)"
+                                    class="btn btn-outline-danger btn-sm float-right">
+                                취소
+                            </button>
+                        </div>
+                        <div v-else class="card-header">
+                            <b style="color:red; ">[취소]</b> <s>주문일자 : {{purchase.createdAt}}</s>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">주문내용</h5>
+                            <p class="card-text"><small class="text-muted">연락처 : {{purchase.tel}}</small></p>
+                            <p class="card-text"><small class="text-muted">주소지 : {{purchase.address}}</small></p>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">번호</th>
+                                    <th scope="col">상품</th>
+                                    <th scope="col">수량</th>
+                                    <th scope="col">가격</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="(receipt, index) in purchase.receipts">
+                                    <th scope="row">{{index + 1}}.</th>
+                                    <td>{{receipt.goods.title}}</td>
+                                    <td>{{receipt.count}}</td>
+                                    <td>{{receipt.goods.price * receipt.count}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <script src="/js/shop/shop.list.purchase.js"></script>
+
+                <!-- Pagenation -->
+                <div class="w-100 text-center">
+                    <div th:replace="/component/shop/common/pagenation :: shop_pagenation"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

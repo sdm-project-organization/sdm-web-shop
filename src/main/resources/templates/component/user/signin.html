@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="user_signin">
+
+    <form action="/user/login" method="POST">
+        <div class="input-group mb-3" style="margin-top: 25px; !important;">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ID</span>
+            </div>
+            <!-- TODO == TEST == -->
+            <!--<input type="text" name="userId" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">-->
+            <input type="text" name="userId" value="admin@kakao.com" class="form-control" placeholder="이메일을 입력해주세요." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3" style="margin-top: 10px; !important;">
+            <div class="input-group-prepend">
+                <span class="input-group-text">PW</span>
+            </div>
+            <!-- TODO == TEST == -->
+            <!--<input type="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">-->
+            <input type="password" name="password" value="admin1234" class="form-control" placeholder="비밀번호를 입력해주세요." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div style="margin-top: 10px; !important;">
+            <button type="submit" class="btn btn-outline-success btn-block">로그인</button>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

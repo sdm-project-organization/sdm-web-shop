@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="user_signup">
+        <div id="user_signup">
+            <div class="input-group mb-3" style="margin-top: 25px; !important;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">ID</span>
+                </div>
+                <input v-model="userId" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3" style="margin-top: 10px; !important;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">PW</span>
+                </div>
+                <input v-model="password" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3" style="margin-top: 10px; !important;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">PW</span>
+                </div>
+                <input v-model="passwordCopy"  type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div style="margin-top: 10px; !important;">
+                <button v-on:click="clickSignup" class="btn btn-outline-success btn-block">회원가입</button>
+            </div>
+
+            <div v-if="visibleMessage" v-html="message" class="alert alert-danger" role="alert" style="margin-top: 10px; !important;">
+            </div>
+        </div>
+        <script src="/js/user/user.signup.js"></script>
+    </div>
+</body>
+</html>

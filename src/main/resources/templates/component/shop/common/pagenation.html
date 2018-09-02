@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="shop_pagenation" class="d-inline-block">
+    <div id="shop_pagenation">
+        <nav aria-label="Page navigation example" >
+            <ul class="pagination">
+
+                <!-- Previous -->
+                <li v-if="availablePrevious" class="page-item">
+                    <a v-on:click="clickPrevious" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+
+                <!-- Move Page -->
+                <li v-for="btn in btnList" class="page-item" v-bind:class="{ active : btn == nowBtn }">
+                    <a v-on:click="clickBtn(btn)" class="page-link" >{{btn}}</a>
+                </li>
+
+                <!-- Next -->
+                <li v-if="availableNext" class="page-item">
+                    <a v-on:click="clickNext" class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+
+                <input id="hidden_max_item" type="hidden" th:value="*{maxItem}">
+                <input id="hidden_size_item" type="hidden" th:value="*{sizeItem}">
+                <input id="hidden_size_btn" type="hidden" th:value="*{sizeBtn}">
+            </ul>
+        </nav>
+    </div>
+    <script src="/js/shop/common/shop.common.paganation.js"></script>
+
+</div>
+</body>
+</html>

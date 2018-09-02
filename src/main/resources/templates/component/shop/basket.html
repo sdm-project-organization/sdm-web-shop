@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.nex.nz/thymeleaf/layout"
+      layout:decorator="layout/layout_shop">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="/css/shop/shop.basket.css">
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- Basket Title -->
+            <div class="row" style="margin-top: 30px;">
+                <h1 class="display-4 d-inline-block">장바구니</h1>
+            </div>
+            <hr class="my-4">
+
+            <!-- Basket List -->
+            <div id="shop_basket_list" class="row" style="margin-bottom: 30px;">
+                <div v-for="basket in listBasket" class="col-3 basket-card-margin">
+                    <div class="card">
+                        <img v-bind:src="basket.goods.thumbnail" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{basket.goods.title}}</h5>
+                            <p class="card-text">{{basket.goods.subTitle}}</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <select v-model="basket.count" class="form-control">
+                                        <option value="1">1</option><option value="2">2</option>
+                                        <option value="3">3</option><option value="4">4</option>
+                                        <option value="5">5</option><option value="6">6</option>
+                                        <option value="7">7</option><option value="8">8</option>
+                                        <option value="9">9</option><option value="10">10</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <a v-on:click="reqDeleteBasket(basket.basketNo)" href="#" class="btn btn-outline-danger btn-block">제거</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="/js/shop/shop.list.basket.js"></script>
+
+            <!-- Pagenation -->
+            <div class="w-100 text-center">
+                <div th:replace="/component/shop/common/pagenation :: shop_pagenation"></div>
+            </div>
+
+            <a href="/shop/payment" class="btn btn-outline-success btn-lg btn-block"
+               style="margin-top: 30px; margin-bottom: 30px">
+                구매하기
+            </a>
+        </div>
+    </div>
+</section>
+</body>
+</html>

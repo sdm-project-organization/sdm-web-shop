@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.nex.nz/thymeleaf/layout"
+      layout:decorator="layout/layout_shop">
+<head>
+    <meta charset="UTF-8">
+    <title>구매하기</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div id="shop_payment" class="row">
+        <div class="col-12">
+
+            <!-- Payment Title -->
+            <div class="row" style="margin-top: 30px;">
+                <h1 class="display-4 d-inline-block">결제하기</h1>
+            </div>
+            <hr class="my-4">
+
+            <!-- Basket List -->
+            <div class="row" style="margin-top: 30px;">
+                <h5>구매목록</h5>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">번호</th>
+                        <th scope="col">상품</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">가격</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="basket : ${listBasket}">
+                        <th scope="row" th:text="${basketStat.count}">번호</th>
+                        <td th:text="${basket.getGoods().getTitle()}">상품</td>
+                        <td th:text="${basket.getCount()}">수량</td>
+                        <td th:text="${basket.getGoods().getPrice() * basket.getCount()}">가격</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Payment -->
+            <div class="row" style="margin-top: 30px;">
+                <h5>결재내용</h5>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>전화번호</td><td><input v-model="tel" type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>주소지</td><td><input v-model="address" type="text" class="form-control"></td>
+                    </tr>
+                </table>
+                <button v-on:click="clickPayment" type="button" class="btn btn-outline-success btn-lg btn-block"
+                        style="margin-top: 30px; margin-bottom: 30px">
+                    결제하기
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <script src="/js/shop/shop.payment.js"></script>
+</section>
+</body>
+</html>
