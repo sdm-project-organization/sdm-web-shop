@@ -27,6 +27,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{goods.title}}</h5>
                                 <p class="card-text">{{goods.subTitle}}</p>
+                                <p class="float-right"><em>수량 {{goods.stock}}</em></p>
                                 <button v-on:click="reqCreateBasket(goods.goodsNo)" type="button" class="btn btn-outline-warning btn-block">장바구니담기</button>
                             </div>
                         </div>

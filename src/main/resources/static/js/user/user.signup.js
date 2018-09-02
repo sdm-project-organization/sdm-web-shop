@@ -3,16 +3,12 @@
     new Vue({
         el: '#user_signup',
         data: {
-            // userId: "",
-            // password: "",
-            // passwordCopy: ""
+            userId: "",
+            password: "",
+            passwordCopy: "",
 
             visibleMessage: false,
             message: "",
-
-            userId: "user@kakao.com",
-            password: "user1234",
-            passwordCopy: "user1234"
         },
         methods: {
             // == Click Signup ==

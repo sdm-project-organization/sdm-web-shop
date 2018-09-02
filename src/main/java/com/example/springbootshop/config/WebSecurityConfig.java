@@ -37,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // == API & PAGE TEST ==
                 // .antMatchers("/", "/user/**", "/api/**", "shop/**").permitAll()
+
                 .antMatchers("/", "/user/**").permitAll()
                 .antMatchers("/shop/admin").hasRole("EMPLOYEE")
                 .antMatchers("/shop/**").hasRole("USER")

@@ -10,7 +10,7 @@
             // == Basket 리스트 요청 ==
             reqGetBasketList(page) {
                 var that = this;
-                axios.get("/api/basket?page=" + page).then(function (res) {
+                axios.get("/api/basket/user?page=" + page).then(function (res) {
                     that.listBasket = res.data;
                 }).catch(function (err) {
                     if(err.response) {
