@@ -115,6 +115,9 @@ public class BasketService {
     public Basket save(Basket basket) {
         int userNo = userService.getShopUserDetails().getUserNo(); // == 인증유저 ==
 
+        // == 초기설정 ==
+        basket.setCount(1);
+
         // == 최대용량 == /*416*/
         if (countByUserNo() > maxBasketCount)
             throw new BasketCountOverflowException();
